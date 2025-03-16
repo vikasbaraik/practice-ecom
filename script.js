@@ -14,3 +14,22 @@ Requirements:-
 8- There should be an option to decrease the quantity of the product or remove the product from the cart.
 9- In the cart section, there should be a "checkout" button on click of which an alert should be shown with the total price to be paid by the user.
 */
+
+const productsContainer = document.querySelector(".products");
+const cartContainer = document.getElementById("cart");
+const cartBtn = document.getElementById("cartBtn");
+const checkoutBtn = document.getElementById("checkoutBtn");
+
+let cart = [];
+
+// Fetch products from API
+fetch("https://dummyjson.com/products")
+.then(response => response.json())
+.then(data => displayProducts(data.products))
+.catch(error => console.error("Error fetching products:", error));
+
+function displayProducts(products) {
+    products.forEach(product => {
+        console.log(product);
+    });
+}
