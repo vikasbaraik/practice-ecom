@@ -27,16 +27,15 @@ body {
 
   .product {
     border: 1px solid #ccc;
-
     margin: 10px; 
     width: 300px;
     background-color: white;
     width: 300px;
-            height: 150px;
-            background-color: #f0f0f0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
-        
+    /* height: 150px; */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
+
 }
 
   .cart {
@@ -65,11 +64,11 @@ body {
   .img_con{
     display: flex;
     flex-direction: row;
-    /* padding: 10px; */
+    padding: 10px;
     padding-top: 40px;
     background-color: #e3e2e2;
-    /* border-radius: 10px; */
-            /* box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 -3px 3px rgba(0, 0, 0, 0.1); */
+    border-radius: 10px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
         
   }
   .img_con button{
@@ -85,6 +84,7 @@ body {
   }
   .card_footer{
     text-align: center;
+    margin-bottom: 10px;
   }
   .addToCartBtn{
     /* color: black; */
@@ -108,3 +108,10 @@ body {
   .cart_item button{
     float: right;
   }
+
+  .product img {
+    width: 100%;  /* Make image take full width of the card */
+    height: 180px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    border-radius: 10px;
+}

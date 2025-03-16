@@ -29,7 +29,43 @@ fetch("https://dummyjson.com/products")
 .catch(error => console.error("Error fetching products:", error));
 
 function displayProducts(products) {
+    productsContainer.innerHTML = ""; 
+
     products.forEach(product => {
-        console.log(product);
+        const productCard = document.createElement("div");
+        productCard.classList.add("product");
+
+        let imageIndex = 0;
+
+        productCard.innerHTML = `
+            <div class="img_con">
+                <button class="prev-btn">❮</button>
+                <img src="${product.images[imageIndex]}" class="product-image">
+                <button class="next-btn">❯</button>
+            </div>
+            <div class="card_footer">
+                <h3>${product.title}</h3>
+                <p>Price: $${product.price}</p>
+                <button class="addToCartBtn">Add to Cart</button>
+            </div>
+        `;
+
+        const imageElement = productCard.querySelector(".product-image");
+        const prevBtn = productCard.querySelector(".prev-btn");
+        const nextBtn = productCard.querySelector(".next-btn");
+
+        prevBtn.addEventListener("click", () => {
+            imageIndex = (imageIndex - 1 + product.images.length) % product.images.length;
+            imageElement.src = product.images[imageIndex];
+        });
+
+        nextBtn.addEventListener("click", () => {
+            imageIndex = (imageIndex + 1) % product.images.length;
+            imageElement.src = product.images[imageIndex];
+        });
+
+        productCard.querySelector(".addToCartBtn").addEventListener("click", () => addToCart(product));
+
+        productsContainer.appendChild(productCard);
     });
 }
