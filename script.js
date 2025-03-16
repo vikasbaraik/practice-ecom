@@ -79,3 +79,8 @@ function addToCart(product) {
         cart.push({ ...product, quantity: 1 });
     }
 }
+
+cartBtn.addEventListener("click", () => {
+    productsContainer.classList.toggle("hide");
+    cartContainer.classList.toggle("show");
+});

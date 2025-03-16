@@ -115,3 +115,11 @@ body {
     object-fit: cover; /* Ensures the image covers the area without stretching */
     border-radius: 10px;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
