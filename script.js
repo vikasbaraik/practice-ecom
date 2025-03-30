@@ -125,3 +125,8 @@ cartBtn.addEventListener("click", () => {
     productsContainer.classList.toggle("hide");
     cartContainer.classList.toggle("show");
 });
+
+checkoutBtn.addEventListener("click", () => {
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    alert(`Thankyou for shopping!!!\nYour Total Price: $${total}`);
+});
