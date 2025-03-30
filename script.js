@@ -78,6 +78,47 @@ function addToCart(product) {
     } else {
         cart.push({ ...product, quantity: 1 });
     }
+
+    updateCart();
+}
+
+function updateCart() {
+    cartContainer.innerHTML = "<h2>Cart</h2>";
+
+    cart.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart_item");
+
+        cartItem.innerHTML = `
+            <span>${item.title}</span>
+            <span>Price: $${item.price}</span>
+            <span>Qty: ${item.quantity}</span>
+            <button class="increase">+</button>
+            <button class="decrease">-</button>
+            <button class="remove">Remove</button>
+        `;
+
+        cartItem.querySelector(".increase").addEventListener("click", () => {
+            item.quantity++;
+            updateCart();
+        });
+
+        cartItem.querySelector(".decrease").addEventListener("click", () => {
+            if (item.quantity > 1) {
+                item.quantity--;
+            } else {
+                cart = cart.filter(cartItem => cartItem.id !== item.id);
+            }
+            updateCart();
+        });
+
+        cartItem.querySelector(".remove").addEventListener("click", () => {
+            cart = cart.filter(cartItem => cartItem.id !== item.id);
+            updateCart();
+        });
+
+        cartContainer.appendChild(cartItem);
+    });
 }
 
 cartBtn.addEventListener("click", () => {
